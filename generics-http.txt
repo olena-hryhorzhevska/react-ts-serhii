@@ -1,0 +1,182 @@
+  const API = 'https://jsonplaceholder.typicode.com/posts';
+
+
+  const foo = async () => 'bar';
+  foo().then(console.log);
+
+  const foo = () => Promise.resolve('bar');
+  foo().then(console.log);
+
+  async function foo() {
+  return 'bar'
+  }
+  
+  foo().then(console.log);
+
+  function foo() {
+    return Promise.resolve('bar');
+  }
+  foo().then(console.log);
+
+  function foo() {
+    return new Promise((resolve) => {
+      resolve('bar');
+    })
+  }
+  foo().then(console.log);
+
+  function foo() {
+    return new Promise((resolve) => {
+      resolve('bar');
+    })
+  }
+  foo().then((msg) => {
+    console.log(msg);
+  })
+
+
+----------- ❗️HTTP requests типизация
+  async function getData<T>(url: string): Promise<T> {
+    const res = await fetch(url)
+    if (!res.ok) {
+      throw new Error('Failed to fetch data');
+    }
+    return res.json() as Promise<T>;
+  }
+
+  interface Posts {
+    id: number;
+    title: string;
+    body: string;
+  }
+
+  const fetchPosts = async () => {
+    try {
+      const posts = await getData<Posts>(API)
+      console.log(posts);
+    }
+    catch (error) {
+      console.error('Error fetching posts:', error);
+    }
+  }
+
+  fetchPosts()
+
+
+----------- ❗️Примеры запросов на сервер
+  fetch(API).then((response) => response.json()
+    .then((data) => console.log(data)));
+
+  axios.get(API).then((response)=> console.log(response.data));
+
+  axios.get(API)
+    .then((response) => console.log(response.data));
+
+
+----------- ❗️BASIC GENERIC EXAMPLE 
+
+  function identifyNumber(value: number): number {
+    return value;
+  }
+
+  function indentifyString(value: string): string {
+    return value;
+  }
+
+  function identity<T>(value: T): T {
+    return value;
+  }
+
+  const num = identity(42);
+  const str = identity("Hello, Generics!");
+
+  console.log(num);
+  console.log(str);
+
+
+
+----------- ❗️BASIC GENERIC EXAMPLE WITH ARRAYS
+
+  function firstElement<T>(arr: T[] ): T | undefined {
+    return arr[0];
+  }
+
+  const nums = firstElement([1, 2, 3])
+  const str = firstElement(["a", "b", "c"])
+
+  console.log(nums);
+  console.log(str);
+
+
+
+  ----------- ❗️EXTENDS
+
+  function getLength<T extends { length: number }>(item: T): number {
+    return item.length;
+  }
+
+  console.log(getLength("Hello, World!"));
+  console.log(getLength([1, 2, 3, 4, 5]));
+  console.log(getLength(123)); // error❌
+
+  const name = 'MY name is'
+  console.log(name.length);
+
+
+  ----------- ❗️API Response Interface
+
+  interface ApiResponse<T> {
+    data: T;
+    status: number;
+  }
+
+  const userResponse: ApiResponse<{ id: number; name: string; city: string }> = {
+    data: { id: 1, name: "Alex", city: "New York" },
+    status: 200
+  }
+
+
+  ----------- ❗️Promise Practicing
+
+  const first = () => {
+    console.log('first');
+  };
+
+  const second = () => {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve('second');
+      }, 2000);
+    });
+  };
+
+  const third = () => {
+    console.log('third');
+  };
+
+  const timeout = () => {
+    setTimeout(() => {
+      console.log('timeout');
+    }, 1000)
+  }
+
+  first();
+  second().then(message => {
+    console.log(message);
+  });
+  third();
+  timeout();
+
+
+
+  ----------- ❗️Promise типизация
+
+  function delay(ms: number): Promise<string> {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(`waited for ${ms / 1000} seconds`);
+      }, ms)
+    })
+  }
+
+  delay(3000).then((message)=> console.log(message));
