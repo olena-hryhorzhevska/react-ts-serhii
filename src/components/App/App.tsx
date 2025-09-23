@@ -1,18 +1,56 @@
-import Counter from '../Counter/Counter';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
-import LoginStatus from '../Login/Login';
-import './App.module.css'
-
+import './App.module.css';
+import { ClickCounter } from '../ClickCounter/ClickCounter';
+import { useState } from 'react';
+import SpreadPractice from '../SpreadPractice/SpreadPractice';
 
 function App() {
-  const isLoggedInT = false;
+  const [count, setCount] = useState(0);
+  const handleClick = () => {
+    setCount(count + 1);
+  };
+
+  interface IValues {
+    x: number;
+    y: number;
+  }
+
+  const [values, setValues] = useState<IValues>({ x: 0, y: 0 });
+
+  // const updateX = () => {
+  //   setValues({
+  //     ...values, // {x: 0, y: 0}
+  //     x: values.x + 1, // {x: 1, y: 0}
+  //   });
+  // };
+  // const updateY = () => {
+  //   setValues({
+  //     ...values,
+  //     y: values.y + 1,
+  //   })
+  // };
+
+  const updateValue = (key: keyof IValues) => {
+    setValues({
+      ...values,
+      [key]: values[key] + 1,
+    });
+  };
 
   return (
     <>
       <Header />
-      <Counter />
-      <LoginStatus isLoggedIn={isLoggedInT} />
+      <ClickCounter value={count} onUpdate={handleClick} />
+      <ClickCounter value={count} onUpdate={handleClick} />
+      <ClickCounter value={count} onUpdate={handleClick} />
+
+      <p>
+        x: {values.x}, y: {values.y}
+      </p>
+      <button onClick={() => updateValue('x')}>Update X</button>
+      <button onClick={() => updateValue('y')}>Update Y</button>
+      <SpreadPractice/>
       <Footer name="Serhii" age={18} city="New York" />
     </>
   );
