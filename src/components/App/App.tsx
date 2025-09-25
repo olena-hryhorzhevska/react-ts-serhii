@@ -4,15 +4,17 @@ import './App.module.css';
 import { ClickCounter } from '../ClickCounter/ClickCounter';
 import { useState } from 'react';
 import SpreadPractice from '../SpreadPractice/SpreadPractice';
+import ProfileData from '../ProfileData/ProfileData';
 
 function App() {
+
   const [count, setCount] = useState(0);
   const handleClick = () => {
     setCount(count + 1);
   };
 
   interface IValues {
-    x: number;
+    x: number;  
     y: number;
   }
 
@@ -44,14 +46,15 @@ function App() {
       <ClickCounter value={count} onUpdate={handleClick} />
       <ClickCounter value={count} onUpdate={handleClick} />
       <ClickCounter value={count} onUpdate={handleClick} />
-
       <p>
         x: {values.x}, y: {values.y}
       </p>
       <button onClick={() => updateValue('x')}>Update X</button>
       <button onClick={() => updateValue('y')}>Update Y</button>
-      <SpreadPractice/>
+      <SpreadPractice />
       <Footer name="Serhii" age={18} city="New York" />
+
+      <ProfileData/>
     </>
   );
 }

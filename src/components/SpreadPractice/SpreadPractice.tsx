@@ -2,7 +2,7 @@ import { useState } from 'react';
 enum Keys {
   X = 'x',
   Y = 'y',
-}
+} // 'x' | 'y'
 
 interface Values {
   x: number;
