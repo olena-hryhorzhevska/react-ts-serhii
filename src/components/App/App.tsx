@@ -1,13 +1,38 @@
-import { CurrencyConverter } from '../CurrencyConverter/CurrencyConverter';
-import Effect from '../Effect/Effect';
+
 import Header from '../Header/Header';
-import ShoppingCart from '../ShoppingCart/ShoppingCart';
+import UserList from '../UserList/UserList';
+import WindowSizeTracker from '../WindowSizeTracker/WindowSizeTracker';
 import './App.module.css';
 
 function App() {
+  // const obj = {
+  //   name: 'John',
+  //   age: 30,
+  //   city: 'New York',
+  // };
+
+  // const arr = Object.values(obj); // ['John', 30, 'New York']
+  // console.log(arr);
+
+  // const mapped = arr.map(item => {
+  //   if (typeof item === 'string') {
+  //     return item;
+  //   }
+  // });
+  // console.log(mapped); // ['John', undefined, 'New York']
+
+
+  // const find = arr.find(item => {
+  //   return typeof item === 'number';
+  // })
+
+  // console.log(find); // 30
+  
+
+
 
   // interface IValues {
-  //   x: number;  
+  //   x: number;
   //   y: number;
   // }
 
@@ -36,10 +61,8 @@ function App() {
   return (
     <>
       <Header />
-      <ShoppingCart />
-      <CurrencyConverter />
-
-      <Effect />
+      <WindowSizeTracker />
+      <UserList />
     </>
   );
 }

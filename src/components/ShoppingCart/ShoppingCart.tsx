@@ -23,7 +23,7 @@ export default function ShoppingCart() {
   const increaseQty = (id: number) => {
     setCart(prev =>
       prev.map(item =>
-        item.id === id 
+        item.id === id
           ? {
               ...item,
               qty: item.qty + 1,
@@ -32,6 +32,19 @@ export default function ShoppingCart() {
       )
     );
   };
+
+//   const increaseQty = (id: number) => {
+//     setCart(prev => 
+//       prev.map(item => {
+//         if (item.id === id) {
+//           return {
+//             ...item,
+//             qty: item.qty + 1,
+//           }
+//         }
+//       })
+//  )
+//   }
 
   return (
     <div>
