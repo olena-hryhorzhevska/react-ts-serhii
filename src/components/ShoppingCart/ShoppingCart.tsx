@@ -20,31 +20,33 @@ export default function ShoppingCart() {
     },
   ]);
 
-  const increaseQty = (id: number) => {
-    setCart(prev =>
-      prev.map(item =>
-        item.id === id
-          ? {
-              ...item,
-              qty: item.qty + 1,
-            }
-          : item
-      )
-    );
-  };
+  // const increaseQty = (id: number) => {
+  //   setCart(prev =>
+  //     prev.map(item =>
+  //       item.id === id
+  //         ? {
+  //             ...item,
+  //             qty: item.qty + 1,
+  //           }
+  //         : item
+  //     )
+  //   );
+  // };
 
-//   const increaseQty = (id: number) => {
-//     setCart(prev => 
-//       prev.map(item => {
-//         if (item.id === id) {
-//           return {
-//             ...item,
-//             qty: item.qty + 1,
-//           }
-//         }
-//       })
-//  )
-//   }
+  const increaseQty = (id: number) => {
+    setCart(prev => {
+      return prev.map(item => {
+        if (item.id === id) {
+          return {
+            ...item,
+            qty: item.qty + 1,
+          }
+        }
+        return item;
+      })
+    }
+    )
+  }
 
   return (
     <div>
