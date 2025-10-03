@@ -1,7 +1,7 @@
 
 import Header from '../Header/Header';
-import ShoppingCart from '../ShoppingCart/ShoppingCart';
-import UserList from '../UserList/UserList';
+import PostsApi from '../PostsApi/PostsApi';
+import Stopwatch from '../StopWatch/StopWatch';
 import WindowSizeTracker from '../WindowSizeTracker/WindowSizeTracker';
 import './App.module.css';
 
@@ -63,8 +63,9 @@ function App() {
     <>
       <Header />
       <WindowSizeTracker />
-      <ShoppingCart />
-      <UserList />
+      <Stopwatch />
+      
+      <PostsApi />
     </>
   );
 }
