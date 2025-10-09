@@ -30,9 +30,9 @@ useEffect(() => {
 //   const [isRunning, setIsRunning] = useState<boolean>(false);
 
 //   useEffect(() => {
-//     let intervalId: number;
+//     let intervalId: number | NodeJS.Timeout;
 //     if (isRunning) {
-//       intervalId = window.setInterval(() => {
+//       intervalId = setInterval(() => {
 //         setSeconds(prev => prev + 1);
 //       }, 1000);
 //     }
