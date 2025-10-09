@@ -1,9 +1,7 @@
 
 import Header from '../Header/Header';
 import PhotoGallery from '../PhotoGallery/PhotoGallery';
-import PostsApi from '../PostsApi/PostsApi';
 import Stopwatch from '../StopWatch/StopWatch';
-import WindowSizeTracker from '../WindowSizeTracker/WindowSizeTracker';
 import './App.module.css';
 
 function App() {
@@ -65,7 +63,7 @@ function App() {
       <Header />
       <Stopwatch />
 
-      <PhotoGallery/>
+      <PhotoGallery />
     </>
   );
 }
