@@ -1,7 +1,6 @@
 
+import Form from '../Form/Form';
 import Header from '../Header/Header';
-import PhotoGallery from '../PhotoGallery/PhotoGallery';
-import Stopwatch from '../StopWatch/StopWatch';
 import './App.module.css';
 
 function App() {
@@ -61,9 +60,7 @@ function App() {
   return (
     <>
       <Header />
-      <Stopwatch />
-
-      <PhotoGallery />
+      <Form />
     </>
   );
 }
