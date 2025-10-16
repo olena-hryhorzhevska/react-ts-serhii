@@ -6,9 +6,6 @@ export default function Form() {
 
     console.log({ username, email });
   }
-    
-
-
  
   return (
       <form action={handleSubmit}>

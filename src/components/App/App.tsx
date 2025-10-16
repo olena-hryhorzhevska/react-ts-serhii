@@ -1,6 +1,6 @@
 
-import Form from '../Form/Form';
 import Header from '../Header/Header';
+import NewForm from '../NewForm/NewForm';
 import './App.module.css';
 
 function App() {
@@ -60,7 +60,7 @@ function App() {
   return (
     <>
       <Header />
-      <Form />
+      <NewForm/>
     </>
   );
 }
