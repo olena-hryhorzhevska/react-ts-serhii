@@ -1,7 +1,7 @@
 
 import Header from '../Header/Header';
-import NewForm from '../NewForm/NewForm';
 import './App.module.css';
+import FormData from '../FormData/FormData';
 
 function App() {
   // const obj = {
@@ -60,7 +60,7 @@ function App() {
   return (
     <>
       <Header />
-      <NewForm/>
+      <FormData/>
     </>
   );
 }
