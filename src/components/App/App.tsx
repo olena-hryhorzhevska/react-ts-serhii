@@ -1,7 +1,7 @@
-
 import Header from '../Header/Header';
 import './App.module.css';
-import FormData from '../FormData/FormData';
+import OrderForm from '../OrderForm/OrderForm';
+import UserId from '../UserId/UserId';
 
 function App() {
   // const obj = {
@@ -20,15 +20,11 @@ function App() {
   // });
   // console.log(mapped); // ['John', undefined, 'New York']
 
-
   // const find = arr.find(item => {
   //   return typeof item === 'number';
   // })
 
   // console.log(find); // 30
-  
-
-
 
   // interface IValues {
   //   x: number;
@@ -57,10 +53,15 @@ function App() {
   //   });
   // };
 
+  const handleSubmit = (username: string): void => {
+    console.log('Order placed by:', username);
+  };
+
   return (
     <>
       <Header />
-      <FormData/>
+      <OrderForm onSubmit={handleSubmit} />
+      <UserId/>
     </>
   );
 }
