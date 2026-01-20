@@ -6,6 +6,9 @@ export default function Effect() {
 
   useEffect(() => {
     console.log(`❌ Без массива`);
+    return () => {
+      console.log(`🧼 Очистка без массива`);
+    }
   })
 
     useEffect(() => {

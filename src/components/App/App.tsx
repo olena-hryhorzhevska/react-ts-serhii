@@ -1,7 +1,5 @@
 import Header from '../Header/Header';
 import './App.module.css';
-import OrderForm from '../OrderForm/OrderForm';
-import UserId from '../UserId/UserId';
 
 function App() {
   // const obj = {
@@ -53,15 +51,16 @@ function App() {
   //   });
   // };
 
-  const handleSubmit = (username: string): void => {
-    console.log('Order placed by:', username);
-  };
+  // const handleSubmit = (username: string): void => {
+  //   console.log('Order placed by:', username);
+  // };
 
   return (
     <>
       <Header />
-      <OrderForm onSubmit={handleSubmit} />
-      <UserId/>
+      {/* <OrderForm onSubmit={handleSubmit} /> */}
+      {/* <UserId /> */}
+      {/* <OrderForm/> */}
     </>
   );
 }
