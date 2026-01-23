@@ -1,5 +1,6 @@
-import Header from '../Header/Header';
 import './App.module.css';
+import Modal from '../Modal/Modal';
+import { useState } from 'react';
 
 function App() {
   // const obj = {
@@ -55,13 +56,21 @@ function App() {
   //   console.log('Order placed by:', username);
   // };
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
   return (
-    <>
-      <Header />
-      {/* <OrderForm onSubmit={handleSubmit} /> */}
-      {/* <UserId /> */}
-      {/* <OrderForm/> */}
-    </>
+    <div>
+      <h1>Main content of the page</h1>
+      <button onClick={openModal}>Open Modal</button>
+      {isModalOpen && (
+        <Modal onClose={closeModal}>
+          <h2>Modal Title!!!!!!!! This is a new Modal</h2>
+          <p>This is the modal content.</p>
+        </Modal>
+      )}
+    </div>
   );
 }
 
