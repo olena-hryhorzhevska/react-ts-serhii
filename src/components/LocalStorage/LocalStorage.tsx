@@ -9,7 +9,16 @@ export default function LocalStorage() {
     return 0;
   });
 
+  // console.log(typeof JSON.stringify({ a: 10 }));
+  // console.log(typeof JSON.parse('{"a":10}'));
+  
+  
+
   useEffect(() => {
+    if (clicks === 0) {
+      window.localStorage.removeItem('clicks');
+      return;
+    }
     window.localStorage.setItem('clicks', JSON.stringify(clicks));
   }, [clicks])
 
