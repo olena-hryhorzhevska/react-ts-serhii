@@ -1,5 +1,4 @@
-
-import LocalStorage from '../LocalStorage/LocalStorage';
+import ReactQuery from '../ReactQuery/ReactQuery';
 import './App.module.css';
 
 function App() {
@@ -62,7 +61,7 @@ function App() {
 
   return (
     <div>
-      <LocalStorage/>
+      <ReactQuery/>
     </div>
   );
 }
