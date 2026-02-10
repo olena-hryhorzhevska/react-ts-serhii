@@ -13,6 +13,14 @@ export default function ReactQuery() {
     queryKey: ['person', characterId],
     queryFn: () => fetchPerson(characterId),
     enabled: characterId !== '',
+    // staleTime: 1000 * 60 * 5, // 5 minutes
+    // gcTime: 1000 * 60 * 10, // 10 minutes
+    // refetchOnMount: true,
+    // refetchOnWindowFocus: true,
+    // refetchOnReconnect: true,
+    // retry: 1,
+    // placeholderData: (prev) => prev,
+    // initialData: null,
   })
 
   const handleSearch = (formData: FormData) => {

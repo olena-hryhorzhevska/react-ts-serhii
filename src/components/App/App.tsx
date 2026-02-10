@@ -1,4 +1,5 @@
-import ReactQuery from '../ReactQuery/ReactQuery';
+
+import ReactQueryTest from '../ReactQueryTest/ReactQueryTest';
 import './App.module.css';
 
 function App() {
@@ -61,7 +62,7 @@ function App() {
 
   return (
     <div>
-      <ReactQuery/>
+      <ReactQueryTest/>
     </div>
   );
 }
