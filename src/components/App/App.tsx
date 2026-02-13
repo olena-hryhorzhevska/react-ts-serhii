@@ -1,5 +1,5 @@
 
-import ReactQueryTest from '../ReactQueryTest/ReactQueryTest';
+import Pagination from '../Pagination/Pagination';
 import './App.module.css';
 
 function App() {
@@ -62,7 +62,7 @@ function App() {
 
   return (
     <div>
-      <ReactQueryTest/>
+      <Pagination/>
     </div>
   );
 }

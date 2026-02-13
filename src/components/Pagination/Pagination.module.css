@@ -1,0 +1,13 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  list-style: none;
+  padding: 0;
+}
+
+.active {
+  font-weight: bold;
+  color: red;
+}
