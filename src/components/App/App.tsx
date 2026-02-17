@@ -1,5 +1,4 @@
-
-import Pagination from '../Pagination/Pagination';
+import FormikTest from '../Formik/FormikTest';
 import './App.module.css';
 
 function App() {
@@ -62,7 +61,7 @@ function App() {
 
   return (
     <div>
-      <Pagination/>
+      <FormikTest/>
     </div>
   );
 }
