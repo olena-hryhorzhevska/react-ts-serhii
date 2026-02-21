@@ -1,4 +1,4 @@
-import FormikTest from '../Formik/FormikTest';
+import YupValidation from '../YupValidation/YupValidation';
 import './App.module.css';
 
 function App() {
@@ -61,7 +61,7 @@ function App() {
 
   return (
     <div>
-      <FormikTest/>
+      <YupValidation/>
     </div>
   );
 }
