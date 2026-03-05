@@ -1,6 +1,5 @@
-import YupValidation from '../YupValidation/YupValidation';
+import UseMutation from '../UseMutation/UseMutation';
 import './App.module.css';
-
 function App() {
   // const obj = {
   //   name: 'John',
@@ -61,7 +60,7 @@ function App() {
 
   return (
     <div>
-      <YupValidation/>
+      <UseMutation/>
     </div>
   );
 }
