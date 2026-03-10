@@ -1,4 +1,4 @@
-import UseMutation from '../UseMutation/UseMutation';
+import MemoPractice from '../MemoPractice/MemoPractice';
 import './App.module.css';
 function App() {
   // const obj = {
@@ -60,7 +60,7 @@ function App() {
 
   return (
     <div>
-      <UseMutation/>
+      <MemoPractice/>
     </div>
   );
 }
