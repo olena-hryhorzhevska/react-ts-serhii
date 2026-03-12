@@ -1,4 +1,4 @@
-import MemoPractice from '../MemoPractice/MemoPractice';
+import Debounce from '../Debounce/Debounce';
 import './App.module.css';
 function App() {
   // const obj = {
@@ -60,7 +60,7 @@ function App() {
 
   return (
     <div>
-      <MemoPractice/>
+      <Debounce/>
     </div>
   );
 }
