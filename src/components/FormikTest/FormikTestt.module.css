@@ -1,0 +1,48 @@
+
+
+.input {
+  border: 1px solid rgba(38, 38, 38, 0.15);
+  border-radius: 30px;
+  height: 52px;
+  padding-left: 16px;
+}
+
+/* фокус — оранжевый */
+.input:focus {
+  border-color: #f6b83d;
+  outline: none;
+}
+
+/* ошибка */
+.inputError {
+  border-color: #ef2447;
+}
+
+/* успех */
+.inputOkay {
+  border-color: #08aa83;
+}
+
+/* чтобы focus не перебивал состояние */
+.inputError:focus {
+  border-color: #ef2447;
+}
+
+.inputOkay:focus {
+  border-color: #08aa83;
+}
+
+.error {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #ef2447;
+}
+
+.submitBtn {
+  margin-top: 32px;
+  height: 52px;
+  border-radius: 30px;
+  border: none;
+  background: #f6b83d;
+  color: white;
+}

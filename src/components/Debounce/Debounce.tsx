@@ -23,31 +23,93 @@
 
 
 
-
-
-
-
 import { useState } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
+import axios from 'axios';
+import { useQuery, keepPreviousData } from '@tanstack/react-query';
+
+interface Post {
+  id: number;
+  title: string;
+  body: string;
+}
+
+interface FetchPostsResponse {
+  posts: Post[];
+}
+
+const fetchPosts = async (searchText: string) => {
+  const res = await axios.get<FetchPostsResponse>('https://dummyjson.com/posts/search', {
+    params: {
+      q: searchText,
+    },
+  });
+  return res.data.posts;
+};
 
 export default function TestCode() {
-  const [text, setText] = useState('hello');
+  const [inputValue, setInputValue] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
 
-  const makeRequest = useDebouncedCallback((value: string) => {
-    console.log(`Make HTTP request with: ${value}`);
-  }, 1000);
+  const { data: posts, isFetching } = useQuery({
+    queryKey: ['posts', searchQuery],
+    queryFn: () => fetchPosts(searchQuery),
+    placeholderData: keepPreviousData,
+  });
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
+  const updateSearchQuery = useDebouncedCallback((value: string) => setSearchQuery(value), 300);
 
-    setText(value); // сразу обновили input
-    makeRequest(value); // запрос с задержкой
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+
+    setInputValue(value); // обновляем input сразу
+    updateSearchQuery(value); // searchQuery обновится через 300мс
   };
 
   return (
     <>
-      <input type="text" value={text} onChange={handleChange} />
-      <p>Text value: {text}</p>
+      <input type="text" value={inputValue} onChange={handleChange} placeholder="Search posts" />
+
+      {isFetching && <div>Loading posts...</div>}
+
+      {posts && (
+        <ul>
+          {posts.map(post => (
+            <li key={post.id}>{post.title}</li>
+          ))}
+        </ul>
+      )}
     </>
   );
 }
+
+
+
+
+
+
+
+// import { useState } from 'react';
+// import { useDebouncedCallback } from 'use-debounce';
+
+// export default function TestCode() {
+//   const [text, setText] = useState('hello');
+
+//   const makeRequest = useDebouncedCallback((value: string) => {
+//     console.log(`Make HTTP request with: ${value}`);
+//   }, 1000);
+
+//   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+//     const value = event.target.value;
+
+//     setText(value); // сразу обновили input
+//     makeRequest(value); // запрос с задержкой
+//   };
+
+//   return (
+//     <>
+//       <input type="text" value={text} onChange={handleChange} />
+//       <p>Text value: {text}</p>
+//     </>
+//   );
+// }

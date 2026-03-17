@@ -1,5 +1,6 @@
-import Debounce from '../Debounce/Debounce';
+import ZustandPractice from '../ZustandPractice/ZustandPractice';
 import './App.module.css';
+
 function App() {
   // const obj = {
   //   name: 'John',
@@ -60,7 +61,7 @@ function App() {
 
   return (
     <div>
-      <Debounce/>
+      <ZustandPractice />
     </div>
   );
 }
