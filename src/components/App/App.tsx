@@ -1,5 +1,16 @@
-import ZustandPractice from '../ZustandPractice/ZustandPractice';
 import './App.module.css';
+import Navigation from '../../components/Navigation';
+import HomePage from '../../pages/HomePage';
+import AboutPage from '../../pages/AboutPage';
+import ContactPage from '../../pages/ContactPage';
+import NotFoundPage from '../../pages/NotFoundPage';
+import LoginPage from '../../pages/LoginPage';
+import ProductPage from '../../pages/ProductPage';
+import DashboardPage from '../../pages/DasboardPage';
+import DashboardHomePage from '../../pages/DashboardHomePage';
+import SettingsPage from '../../pages/SettingsPage';
+import ProfilePage from '../../pages/ProfilePage';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
   // const obj = {
@@ -61,7 +72,21 @@ function App() {
 
   return (
     <div>
-      <ZustandPractice />
+      <Navigation />
+
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/contacts" element={<ContactPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/product/:id" element={<ProductPage />} />
+        <Route path="/dashboard" element={<DashboardPage />}>
+          <Route index element={<DashboardHomePage />} />
+          <Route path="profile" element={<ProfilePage />} />
+          <Route path="settings" element={<SettingsPage />} />
+        </Route>
+      </Routes>
     </div>
   );
 }
